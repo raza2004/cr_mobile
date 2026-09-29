@@ -1,13 +1,18 @@
 {
   "expo": {
-    "name": "CR_Mobile",
+    "name": "Checkroom Client",
     "slug": "CR_Mobile",
+    "scheme": "crmobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Take photos of your clothing items to add them to your wardrobe.",
+        "NSPhotoLibraryUsageDescription": "Choose photos of your clothing items and moodboard images."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +21,28 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.anonymous.CR_Mobile"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-image",
+      "expo-secure-store",
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Choose photos of your clothing items and moodboard images.",
+          "cameraPermission": "Take photos of your clothing items to add them to your wardrobe."
+        }
+      ]
+    ]
   }
 }
